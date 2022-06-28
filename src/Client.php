@@ -14,8 +14,8 @@ use GuzzleHttp\Exception\GuzzleException;
 
 class Client
 {
-    const PLAYGROUND_URL = 'https://playground.wegift.io/api/b2b-sync/v1';
-    const PRODUCTION_URL = 'https://api.wegift.io/api/b2b-sync/v1';
+    public const PLAYGROUND_URL = 'https://playground.wegift.io/api/b2b-sync/v1';
+    public const PRODUCTION_URL = 'https://api.wegift.io/api/b2b-sync/v1';
 
     private HttpClient $http_client;
 
@@ -71,10 +71,12 @@ class Client
 
     public function getBalanceByCurrency(string $currency_code): Balance
     {
-        if (!in_array(
-            $currency_code,
-            ['AUD', 'CAD', 'CHF', 'CZK', 'DKK', 'EUR', 'GBP', 'HUF', 'NOK', 'NZD', 'PLN', 'SEK', 'USD']
-        )) {
+        if (
+            !in_array(
+                $currency_code,
+                ['AUD', 'CAD', 'CHF', 'CZK', 'DKK', 'EUR', 'GBP', 'HUF', 'NOK', 'NZD', 'PLN', 'SEK', 'USD']
+            )
+        ) {
             // Murder a kitten...
             throw new Exception('Unsupported currency code: ' . $currency_code);
         }

@@ -1,11 +1,12 @@
 <?php
 
+namespace Tests;
 
 use AllDigitalRewards\WeGift\Client as WeGiftClient;
 use AllDigitalRewards\WeGift\Entity\OrderRequest;
 use AllDigitalRewards\WeGift\Entity\OrderResponse;
 use AllDigitalRewards\WeGift\Entity\Product;
-use \GuzzleHttp\Client as HttpClient;
+use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
@@ -13,7 +14,6 @@ use PHPUnit\Framework\TestCase;
 
 class ClientTest extends TestCase
 {
-
     public function testAuthentication()
     {
         $fixtureJson = file_get_contents(__DIR__ . '/fixtures/authentication_response.json');

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Create an Order
  * https://docs.wegift.io/#9d98f03c-bd13-44e8-b208-e9cd108249cf
@@ -11,10 +12,11 @@ use Exception;
 class OrderRequest extends AbstractEntity
 {
     /**
-     * Face value of the e-gift you wish to order in major units. This must be a string containing a decimal representation of the amount.
-     * Based on your discounts we will calculate the amount to place an authorisation on
+     * Face value of the e-gift you wish to order in major units. This must be a string containing a decimal
+     * representation of the amount. Based on your discounts we will calculate the amount to place an authorisation on
      *
-     * Note 1: Even though JSON supports decimal point numbers, our request payload validation will throw an error if the value is passed as number 7.50 rather than "7.50".
+     * Note 1: Even though JSON supports decimal point numbers, our request payload validation will throw an error
+     * if the value is passed as number 7.50 rather than "7.50".
      * Note 2: When ordering Select products, amount must be a whole decimal, for example 10.00.
      *
      * @var string
@@ -39,7 +41,8 @@ class OrderRequest extends AbstractEntity
      *    This is the delivery format for the product which is an enumerated value of either url-instant or url-wrap
      *
      * url-instant means you will receive a URL to a page with the product details
-     * url-wrap means you will receive a URL with the WeGift Wrap experience. For url-wrap the chosen product must have Wrap support. You can check this using the product details method here.
+     * url-wrap means you will receive a URL with the WeGift Wrap experience. For url-wrap the chosen product must have
+     * Wrap support. You can check this using the product details method here.
      *
      * Note 1: when your account has breakage enabled, the accepted values are url-instant and url-wrap.
      * Note 2: when ordering Select products, the only accepted value is url-instant.

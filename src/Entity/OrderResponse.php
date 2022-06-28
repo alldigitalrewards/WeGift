@@ -1,8 +1,10 @@
 <?php
+
 /**
  * Create an Order
  * https://docs.wegift.io/#9d98f03c-bd13-44e8-b208-e9cd108249cf
  */
+
 namespace AllDigitalRewards\WeGift\Entity;
 
 class OrderResponse extends AbstractEntity
@@ -49,7 +51,7 @@ class OrderResponse extends AbstractEntity
     {
         $this->e_codes = [];
 
-        foreach($e_codes as $e_code) {
+        foreach ($e_codes as $e_code) {
             $this->e_codes[] = new Ecode($e_code);
         }
     }
