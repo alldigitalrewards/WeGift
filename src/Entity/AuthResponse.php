@@ -1,14 +1,12 @@
 <?php
 
-namespace AllDigitalRewards\WeGift\Response;
-
-use AllDigitalRewards\WeGift\Entity\AbstractEntity;
+namespace AllDigitalRewards\WeGift\Entity;
 
 class AuthResponse extends AbstractEntity
 {
-    protected string $errorCode;
-    protected string $errorDetails;
-    protected string $errorString;
+    protected string $error_code;
+    protected string $error_details;
+    protected string $error_string;
     protected string $status;
 
     /**
@@ -16,15 +14,15 @@ class AuthResponse extends AbstractEntity
      */
     public function getErrorCode(): string
     {
-        return $this->errorCode;
+        return $this->error_code;
     }
 
     /**
-     * @param string $errorCode
+     * @param string $error_code
      */
-    public function setErrorCode(string $errorCode): void
+    public function setErrorCode(string $error_code): void
     {
-        $this->errorCode = $errorCode;
+        $this->error_code = $error_code;
     }
 
     /**
@@ -32,15 +30,15 @@ class AuthResponse extends AbstractEntity
      */
     public function getErrorDetails(): string
     {
-        return $this->errorDetails;
+        return $this->error_details;
     }
 
     /**
-     * @param string $errorDetails
+     * @param string $error_details
      */
-    public function setErrorDetails(string $errorDetails): void
+    public function setErrorDetails(string $error_details): void
     {
-        $this->errorDetails = $errorDetails;
+        $this->error_details = $error_details;
     }
 
     /**
@@ -48,15 +46,15 @@ class AuthResponse extends AbstractEntity
      */
     public function getErrorString(): string
     {
-        return $this->errorString;
+        return $this->error_string;
     }
 
     /**
-     * @param string $errorString
+     * @param string $error_string
      */
-    public function setErrorString(string $errorString): void
+    public function setErrorString(string $error_string): void
     {
-        $this->errorString = $errorString;
+        $this->error_string = $error_string;
     }
 
     /**

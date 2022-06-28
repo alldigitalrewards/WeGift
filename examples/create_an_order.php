@@ -1,10 +1,20 @@
 <?php
 
 /**
- * List all products
- * https://docs.wegift.io/#81ddc631-8525-4464-ae9b-85aaf99b031a
+ * Create an Order
+ * https://docs.wegift.io/#9d98f03c-bd13-44e8-b208-e9cd108249cf
  */
-require __DIR__ . '/../vendor/autoload.php';
-$client = new \AllDigitalRewards\WeGift\Client('c-r6ab7r8y', 'xqY0boxcswPR?a5%TF');
-$product = $client->findAProduct('ZALO-MY');
-var_dump($product);
+
+use AllDigitalRewards\WeGift\Client;
+use AllDigitalRewards\WeGift\Entity\OrderRequest;
+
+require __DIR__ . "bootstrap.php";
+/** @var Client $client */
+
+
+$orderRequest = new OrderRequest('ZAPPO-US',10,'USD');
+$orderRequest->setIdempotencyKey(uniqid());
+
+$orderResponse = $client->createAnOrder($orderRequest);
+
+var_dump($orderResponse);

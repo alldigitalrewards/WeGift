@@ -1,8 +1,11 @@
 <?php
 
-namespace AllDigitalRewards\WeGift;
+namespace AllDigitalRewards\WeGift\Entity;
 
-abstract class AbstractEntity implements \JsonSerializable
+use DateTime;
+use JsonSerializable;
+
+abstract class AbstractEntity implements JsonSerializable
 {
     public function __construct(array $data = null)
     {
@@ -16,7 +19,10 @@ abstract class AbstractEntity implements \JsonSerializable
         $data = call_user_func('get_object_vars', $this);
 
         foreach ($data as $key => $value) {
-            if ($value instanceof \DateTime) {
+            if (is_null($value)) {
+                continue;
+            }
+            if ($value instanceof DateTime) {
                 $data[$key] = $value->format('Y-m-d H:i:s');
             }
         }
@@ -28,7 +34,7 @@ abstract class AbstractEntity implements \JsonSerializable
     {
         $methods = get_class_methods($this);
         foreach ($options as $key => $value) {
-            if(is_null($value)) {
+            if (is_null($value)) {
                 continue;
             }
             $method = $this->getSetterMethod($key);
@@ -36,16 +42,6 @@ abstract class AbstractEntity implements \JsonSerializable
                 $this->$method($value);
             }
         }
-    }
-
-    protected function isJson($string): bool
-    {
-        json_decode($string);
-        if (JSON_ERROR_NONE !== json_last_error()) {
-            return false;
-        }
-
-        return true;
     }
 
     public function jsonSerialize(): array
