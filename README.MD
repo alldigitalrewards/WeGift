@@ -1,4 +1,4 @@
-# Http
+# WeGift
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.MD)
@@ -7,9 +7,9 @@
 [![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-This is a Work In Progress.
+This is an unofficial WeGift SDK.
 
-This is an exercise in understanding the http-interop related standards and is an implementation of [PSR-7 HTTP message interfaces](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-7-http-message.md) and [HTTP-Factory Interfaces](https://github.com/php-fig/fig-standards/blob/master/proposed/http-factory/http-factory.md)
+Official Documentation: https://docs.wegift.io/
 
 ## Install
 
