@@ -1,7 +1,7 @@
 # Http
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
+[![Software License][ico-license]](LICENSE.MD)
 [![Build Status][ico-build]][link-build]
 [![Coverage Status][ico-scrutinizer]][link-scrutinizer]
 [![Quality Score][ico-code-quality]][link-code-quality]
@@ -21,6 +21,19 @@ $ composer require alldigitalrewards/wegift
 
 ## Usage
 
+``` php
+require __DIR__ . '/../vendor/autoload.php';
+
+use AllDigitalRewards\WeGift\Client;
+
+$client = new Client('user-id', 'api-key');
+
+foreach ($client->listAllProducts() as $product) {
+    var_dump($product);
+}
+```
+
+See examples in the [examples](/examples) folder.
 
 ## Testing
 
@@ -38,7 +51,7 @@ If you discover any security related issues, please email jhoughtelin@alldigital
 
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+The MIT License (MIT). Please see [License File](LICENSE.MD) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/alldigitalrewards/WeGift.svg?style=flat-square
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
