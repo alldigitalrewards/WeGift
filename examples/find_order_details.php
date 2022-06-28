@@ -9,5 +9,5 @@ use AllDigitalRewards\WeGift\Client;
 require __DIR__ . "/bootstrap.php";
 /** @var Client $client */
 
-$balance = $client->getBalanceByCurrency('USD');
-var_dump($balance);
+$orderDetails = $client->findOrderDetails('O-DKM9MWY4');
+var_dump($orderDetails);

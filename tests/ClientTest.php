@@ -3,6 +3,7 @@
 namespace Tests;
 
 use AllDigitalRewards\WeGift\Client as WeGiftClient;
+use AllDigitalRewards\WeGift\Entity\OrderDetails;
 use AllDigitalRewards\WeGift\Entity\OrderRequest;
 use AllDigitalRewards\WeGift\Entity\OrderResponse;
 use AllDigitalRewards\WeGift\Entity\Product;
@@ -61,6 +62,19 @@ class ClientTest extends TestCase
         $product = $weGiftClient->findAProduct('PRODUCT_CODE');
 
         self::assertInstanceOf(Product::class, $product);
+    }
+
+    public function testFindOrderDetails()
+    {
+        $fixtureJson = file_get_contents(__DIR__ . '/fixtures/find_order_details_response.json');
+        $weGiftClient = $this->createMockClient($fixtureJson);
+        $orderDetails = $weGiftClient->findOrderDetails('order-id');
+
+        self::assertInstanceOf(OrderDetails::class, $orderDetails);
+
+        $fixtureData = json_decode($fixtureJson, true);
+        self::assertSame($fixtureData['status'], $orderDetails->getStatus());
+        self::assertSame($fixtureData['order']['created_on'], $orderDetails->getOrder()->getCreatedOn());
     }
 
     private function createMockClient(string $fixtureJson)

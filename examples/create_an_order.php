@@ -8,7 +8,7 @@
 use AllDigitalRewards\WeGift\Client;
 use AllDigitalRewards\WeGift\Entity\OrderRequest;
 
-require __DIR__ . "bootstrap.php";
+require __DIR__ . "/bootstrap.php";
 /** @var Client $client */
 
 

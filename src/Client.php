@@ -3,6 +3,7 @@
 namespace AllDigitalRewards\WeGift;
 
 use AllDigitalRewards\WeGift\Entity\Balance;
+use AllDigitalRewards\WeGift\Entity\OrderDetails;
 use AllDigitalRewards\WeGift\Entity\OrderRequest;
 use AllDigitalRewards\WeGift\Entity\OrderResponse;
 use AllDigitalRewards\WeGift\Entity\Product;
@@ -108,25 +109,34 @@ class Client
         }
     }
 
-    public function findAProduct($productCode): Product
+    public function findAProduct($product_code): Product
     {
-        $response = $this->getHttpClient()->get($this->getEndpoint() . '/products/' . $productCode, [
+        $response = $this->getHttpClient()->get($this->getEndpoint() . '/products/' . $product_code, [
             'auth' => [$this->user_id, $this->api_key]
         ]);
 
         return new Product(json_decode($response->getBody(), true));
     }
 
-    public function createAnOrder(OrderRequest $orderRequest): OrderResponse
+    public function createAnOrder(OrderRequest $order_request): OrderResponse
     {
         $response = $this->getHttpClient()->post($this->getEndpoint() . '/order-digital-card', [
             'headers' => [
                 'content-type' => 'application/json',
             ],
             'auth' => [$this->user_id, $this->api_key],
-            'body' => json_encode($orderRequest)
+            'body' => json_encode($order_request)
         ]);
 
         return new OrderResponse(json_decode($response->getBody(), true));
+    }
+
+    public function findOrderDetails($order_id)
+    {
+        $response = $this->getHttpClient()->get($this->getEndpoint() . '/order-details/' . $order_id, [
+            'auth' => [$this->user_id, $this->api_key]
+        ]);
+
+        return new OrderDetails(json_decode($response->getBody(), true));
     }
 }

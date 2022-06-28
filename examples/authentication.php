@@ -7,7 +7,7 @@
 
 use AllDigitalRewards\WeGift\Client;
 
-require __DIR__ . "bootstrap.php";
+require __DIR__ . "/bootstrap.php";
 /** @var Client $client */
 $authResponse = $client->authentication();
 
