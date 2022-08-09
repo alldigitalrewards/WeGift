@@ -7,31 +7,31 @@ namespace AllDigitalRewards\WeGift\Entity;
  */
 class Product extends AbstractEntity
 {
-    private string $availability;
-    private int $available_in_days;
-    private ?array $available_denominations;
-    private ?string $barcode_format;
-    private string $card_image_url;
-    private string $logo_image_url;
-    private array $categories;
-    private string $code;
-    private array $countries;
-    private string $currency_code;
-    private string $denomination_type;
-    private string $description;
-    private ?string $e_code_usage_type;
-    private string $expiry_date_policy;
-    private ?int $expiry_in_months;
-    private float $maximum_value;
-    private float $minimum_value;
-    private string $name;
-    private float $percent_discount;
-    private string $redeem_instructions_html;
-    private ?string $redeemable_at;
-    private string $state;
-    private string $terms_and_conditions_html;
-    private string $terms_and_conditions_pdf_url;
-    private bool $wrap_supported;
+    protected string $availability;
+    protected int $available_in_days;
+    protected ?array $available_denominations;
+    protected ?string $barcode_format;
+    protected string $card_image_url;
+    protected string $logo_image_url;
+    protected array $categories;
+    protected string $code;
+    protected array $countries;
+    protected string $currency_code;
+    protected string $denomination_type;
+    protected string $description;
+    protected ?string $e_code_usage_type;
+    protected string $expiry_date_policy;
+    protected ?int $expiry_in_months;
+    protected float $maximum_value;
+    protected float $minimum_value;
+    protected string $name;
+    protected float $percent_discount;
+    protected string $redeem_instructions_html;
+    protected ?string $redeemable_at;
+    protected string $state;
+    protected string $terms_and_conditions_html;
+    protected string $terms_and_conditions_pdf_url;
+    protected bool $wrap_supported;
 
     /**
      * @return string
@@ -52,7 +52,7 @@ class Product extends AbstractEntity
     /**
      * @return int
      */
-    public function getAvailableIndays(): int
+    public function getAvailableInDays(): int
     {
         return $this->available_in_days;
     }
@@ -60,9 +60,17 @@ class Product extends AbstractEntity
     /**
      * @param int $available_in_days
      */
-    public function setAvailableIndays(int $available_in_days): void
+    public function setAvailableInDays(int $available_in_days): void
     {
         $this->available_in_days = $available_in_days;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasDenominations(): bool
+    {
+        return isset($this->available_denominations);
     }
 
     /**
@@ -100,7 +108,7 @@ class Product extends AbstractEntity
     /**
      * @return string
      */
-    public function getCardImageurl(): string
+    public function getCardImageUrl(): string
     {
         return $this->card_image_url;
     }
@@ -108,15 +116,20 @@ class Product extends AbstractEntity
     /**
      * @param string $card_image_url
      */
-    public function setCardImageurl(string $card_image_url): void
+    public function setCardImageUrl(string $card_image_url): void
     {
         $this->card_image_url = $card_image_url;
+    }
+
+    public function hasCardImageUrl(): bool
+    {
+        return isset($this->card_image_url);
     }
 
     /**
      * @return string
      */
-    public function getLogoImageurl(): string
+    public function getLogoImageUrl(): string
     {
         return $this->logo_image_url;
     }
@@ -124,9 +137,14 @@ class Product extends AbstractEntity
     /**
      * @param string $logo_image_url
      */
-    public function setLogoImageurl(string $logo_image_url): void
+    public function setLogoImageUrl(string $logo_image_url): void
     {
         $this->logo_image_url = $logo_image_url;
+    }
+
+    public function hasLogoImageUrl(): bool
+    {
+        return isset($this->logo_image_url);
     }
 
     /**
@@ -228,7 +246,7 @@ class Product extends AbstractEntity
     /**
      * @return string|null
      */
-    public function getECodeusagetype(): ?string
+    public function getECodeUsageType(): ?string
     {
         return $this->e_code_usage_type;
     }
@@ -236,7 +254,7 @@ class Product extends AbstractEntity
     /**
      * @param string|null $e_code_usage_type
      */
-    public function setECodeusagetype(?string $e_code_usage_type): void
+    public function setECodeUsageType(?string $e_code_usage_type): void
     {
         $this->e_code_usage_type = $e_code_usage_type;
     }
@@ -244,7 +262,7 @@ class Product extends AbstractEntity
     /**
      * @return string
      */
-    public function getExpiryDatepolicy(): string
+    public function getExpiryDatePolicy(): string
     {
         return $this->expiry_date_policy;
     }
@@ -252,7 +270,7 @@ class Product extends AbstractEntity
     /**
      * @param string $expiry_date_policy
      */
-    public function setExpiryDatepolicy(string $expiry_date_policy): void
+    public function setExpiryDatePolicy(string $expiry_date_policy): void
     {
         $this->expiry_date_policy = $expiry_date_policy;
     }
@@ -260,7 +278,7 @@ class Product extends AbstractEntity
     /**
      * @return int|null
      */
-    public function getExpiryInmonths(): ?int
+    public function getExpiryInMonths(): ?int
     {
         return $this->expiry_in_months;
     }
@@ -268,7 +286,7 @@ class Product extends AbstractEntity
     /**
      * @param int|null $expiry_in_months
      */
-    public function setExpiryInmonths(?int $expiry_in_months): void
+    public function setExpiryInMonths(?int $expiry_in_months): void
     {
         $this->expiry_in_months = $expiry_in_months;
     }
@@ -340,7 +358,7 @@ class Product extends AbstractEntity
     /**
      * @return string
      */
-    public function getRedeemInstructionshtml(): string
+    public function getRedeemInstructionsHtml(): string
     {
         return $this->redeem_instructions_html;
     }
@@ -348,7 +366,7 @@ class Product extends AbstractEntity
     /**
      * @param string $redeem_instructions_html
      */
-    public function setRedeemInstructionshtml(string $redeem_instructions_html): void
+    public function setRedeemInstructionsHtml(string $redeem_instructions_html): void
     {
         $this->redeem_instructions_html = $redeem_instructions_html;
     }
@@ -388,7 +406,7 @@ class Product extends AbstractEntity
     /**
      * @return string
      */
-    public function getTermsAndconditionshtml(): string
+    public function getTermsAndconditionsHtml(): string
     {
         return $this->terms_and_conditions_html;
     }
@@ -396,7 +414,7 @@ class Product extends AbstractEntity
     /**
      * @param string $terms_and_conditions_html
      */
-    public function setTermsAndconditionshtml(string $terms_and_conditions_html): void
+    public function setTermsAndconditionsHtml(string $terms_and_conditions_html): void
     {
         $this->terms_and_conditions_html = $terms_and_conditions_html;
     }
@@ -404,7 +422,7 @@ class Product extends AbstractEntity
     /**
      * @return string
      */
-    public function getTermsAndconditionspdfurl(): string
+    public function getTermsAndConditionsPdfUrl(): string
     {
         return $this->terms_and_conditions_pdf_url;
     }
@@ -412,7 +430,7 @@ class Product extends AbstractEntity
     /**
      * @param string $terms_and_conditions_pdf_url
      */
-    public function setTermsAndconditionspdfurl(string $terms_and_conditions_pdf_url): void
+    public function setTermsAndConditionsPdfUrl(string $terms_and_conditions_pdf_url): void
     {
         $this->terms_and_conditions_pdf_url = $terms_and_conditions_pdf_url;
     }
